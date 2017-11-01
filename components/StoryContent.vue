@@ -3,7 +3,7 @@
         <div class="field">
             <div class="control">
                 <input class="input is-primary" type="text"
-                       placeholder="Title of your story" v-model="storyTitle">
+                       placeholder="Title of your story" v-model="title">
             </div>
         </div>
 
@@ -11,7 +11,7 @@
                 class="textarea"
                 placeholder="Start by writing your story or add something of context"
                 rows="10"
-                v-model="storyBody"
+                v-model="body"
         ></textarea>
     </div>
 </template>
@@ -20,8 +20,8 @@
   export default {
     data () {
       return {
-        storyTitle: null,
-        storyBody: null
+        title: null,
+        body: null
       }
     }
   }
