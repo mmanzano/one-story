@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <character-form mode="create"></character-form>
+            <character-form mode="create" @add="addCharacter"></character-form>
         </div>
     </div>
 </template>
@@ -76,6 +76,9 @@
     methods: {
       toggleShow () {
         this.showCharacterList = !this.showCharacterList
+      },
+      addCharacter (newCharacter) {
+        this.characterList.push(newCharacter)
       }
     }
   }
