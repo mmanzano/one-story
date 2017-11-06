@@ -2,8 +2,11 @@
     <div>
         <div class="field">
             <div class="control">
-                <input class="input is-primary" type="text"
-                       placeholder="Title of your story" v-model="title">
+                <input class="input"
+                       type="text"
+                       placeholder="Title of your story"
+                       v-model="title"
+                >
             </div>
         </div>
 

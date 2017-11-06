@@ -4,8 +4,11 @@
 
         <div class="field">
             <div class="control">
-                <input class="input is-primary" type="text"
-                       placeholder="Name" v-model="name">
+                <input class="input"
+                       type="text"
+                       placeholder="Name"
+                       v-model="name"
+                >
             </div>
         </div>
 
