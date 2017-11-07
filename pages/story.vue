@@ -5,7 +5,7 @@
 
         <div class="columns">
             <div class="column">
-                <story-content></story-content>
+                <story-content :story="story" ></story-content>
             </div>
             <div class="column">
                 <character-list></character-list>
@@ -23,6 +23,14 @@
     components: {
       StoryContent,
       CharacterList
+    },
+    data () {
+      return {
+        story: {
+          title: '',
+          body: ''
+        }
+      }
     },
     computed: {
       ...mapState([

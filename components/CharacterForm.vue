@@ -66,8 +66,8 @@
         name: this.character.name,
         description: this.character.description,
         currentCharacter: {
-          'name': this.character.name,
-          'description': this.character.description
+          name: this.character.name,
+          description: this.character.description
         }
       }
     },

@@ -1,30 +1,62 @@
 <template>
     <div>
-        <div class="field">
-            <div class="control">
-                <input class="input"
-                       type="text"
-                       placeholder="Title of your story"
-                       v-model="title"
-                >
+        <div class="card" v-if="!editMode">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4" v-text="story.title"></p>
+                    </div>
+                    <button class="button is-success"
+                            @click="editMode = true"
+                    >
+                        Edit
+                    </button>
+                </div>
+                <div class="content"  style="white-space: pre;" v-text="story.body">
+                </div>
+
             </div>
         </div>
 
-        <textarea
-                class="textarea"
-                placeholder="Start by writing your story or add something of context"
-                rows="10"
-                v-model="body"
-        ></textarea>
+        <story-form
+                mode="edit"
+                :story="story"
+                v-if="editMode"
+                @cancel="cancel"
+                @save="create"
+                @update="update"
+        ></story-form>
     </div>
 </template>
 
 <script>
+  import StoryForm from '../components/StoryForm'
+
   export default {
+    components: {
+      StoryForm
+    },
+    props: ['story'],
     data () {
       return {
-        title: null,
-        body: null
+        editMode: !this.story.title && !this.story.body
+      }
+    },
+    methods: {
+      cancel () {
+        this.editMode = false
+      },
+      create (currentStory) {
+        console.log('create')
+        this.story.title = currentStory.title
+        this.story.body = currentStory.body
+        this.editMode = false
+      },
+      update (updatedStory) {
+        console.log('update')
+        this.story.title = updatedStory.title
+        this.story.body = updatedStory.body
+        this.editMode = false
       }
     }
   }
