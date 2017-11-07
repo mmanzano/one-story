@@ -5,7 +5,7 @@
 
         <div class="columns">
             <div class="column">
-                <story-content :story="story" ></story-content>
+                <story-content v-bind="{story}"></story-content>
             </div>
             <div class="column">
                 <character-list></character-list>
@@ -19,23 +19,31 @@
   import StoryContent from '../components/StoryContent'
   import CharacterList from '../components/CharacterList'
 
+  import { retrieveAllStories } from '~/services/apirequests'
+
   export default {
     components: {
       StoryContent,
       CharacterList
     },
-    data () {
-      return {
-        story: {
-          title: '',
-          body: ''
-        }
-      }
-    },
     computed: {
+      story () {
+        return this.stories.pop()
+      },
       ...mapState([
         'selectedMonth'
       ])
+    },
+    async asyncData () {
+      let promises = []
+
+      promises.push(retrieveAllStories())
+
+      return Promise.all(promises).then(promisesResults => {
+        return {
+          stories: promisesResults[0]
+        }
+      })
     }
   }
 </script>

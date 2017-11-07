@@ -1,5 +1,8 @@
 module.exports = {
   plugins: ['~plugins/buefy'],
+  env: {
+    JSONAPIBaseUrl: 'http://localhost:8000/api'
+  },
   /*
   ** Headers of the page
   */

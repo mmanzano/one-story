@@ -12,7 +12,7 @@
                         Edit
                     </button>
                 </div>
-                <div class="content"  style="white-space: pre;" v-text="story.body">
+                <div class="content" v-text="story.body">
                 </div>
 
             </div>
@@ -47,13 +47,11 @@
         this.editMode = false
       },
       create (currentStory) {
-        console.log('create')
         this.story.title = currentStory.title
         this.story.body = currentStory.body
         this.editMode = false
       },
       update (updatedStory) {
-        console.log('update')
         this.story.title = updatedStory.title
         this.story.body = updatedStory.body
         this.editMode = false
