@@ -18,7 +18,7 @@
             <div class="columns is-multiline">
                 <div
                         class="column is-half"
-                        v-for="character in characterList"
+                        v-for="character in characters"
                 >
                     <character-content :character="character"></character-content>
                 </div>
@@ -38,39 +38,10 @@
       CharacterContent,
       CharacterForm
     },
+    props: ['characters'],
     data () {
       return {
-        showCharacterList: false,
-        characterList: [
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          },
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          },
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          },
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          },
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          },
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          },
-          {
-            name: 'Mary Poppins',
-            description: 'A person that made the kids very happy'
-          }
-        ]
+        showCharacterList: false
       }
     },
     methods: {
@@ -78,7 +49,7 @@
         this.showCharacterList = !this.showCharacterList
       },
       addCharacter (newCharacter) {
-        this.characterList.push(newCharacter)
+        this.characters.push(newCharacter)
       }
     }
   }

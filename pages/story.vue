@@ -8,7 +8,7 @@
                 <story-content v-bind="{story}"></story-content>
             </div>
             <div class="column">
-                <character-list></character-list>
+                <character-list v-bind="{ characters }"></character-list>
             </div>
         </div>
     </div>
@@ -29,6 +29,9 @@
     computed: {
       story () {
         return this.stories.pop()
+      },
+      characters () {
+        return this.story.characters
       },
       ...mapState([
         'selectedMonth'
