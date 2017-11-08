@@ -68,3 +68,9 @@ export const mutations = {
     state.authorization = authorization
   }
 }
+
+export const getters = {
+  authUser: (state) => {
+    return state.authUser
+  }
+}

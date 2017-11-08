@@ -47,7 +47,6 @@
     },
     data () {
       return {
-        authUser: false,
         error: false,
         apiUrl: process.env.API_AUTH_URL,
         clientId: process.env.PASSPORT_CLIENT_ID,
@@ -56,14 +55,9 @@
         userRoute: 'api/user'
       }
     },
-    created () {
-      console.log(process.env.API_AUTH_URL)
-    },
     methods: {
       handleLogin (payload) {
-        console.log(payload.authUser, payload.headers)
         this.error = false
-        this.authUser = payload.authUser.data
         this.setAuthorization(payload.headers.Authorization)
         this.setAuthUser(payload.authUser.data)
       },
@@ -77,7 +71,7 @@
     },
     computed: {
       ...mapState([
-        'bearerToken'
+        'authUser'
       ])
     }
   }

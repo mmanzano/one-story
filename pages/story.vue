@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h2 class="title is-2">Create your story in {{ selectedMonth.name
-            }}</h2>
+        <h2 class="title is-2">Create your story in {{ selectedMonth.name }}</h2>
 
         <div class="columns">
             <div class="column">
@@ -19,7 +18,7 @@
   import StoryContent from '../components/StoryContent'
   import CharacterList from '../components/CharacterList'
 
-  import { retrieveAllStories } from '~/services/apirequests'
+  import { retrieveStoryForUser } from '~/services/apirequests'
 
   export default {
     components: {
@@ -34,13 +33,14 @@
         return this.story.characters
       },
       ...mapState([
-        'selectedMonth'
+        'selectedMonth',
+        'authUser'
       ])
     },
-    async asyncData () {
+    async asyncData (context) {
       let promises = []
 
-      promises.push(retrieveAllStories())
+      promises.push(retrieveStoryForUser(context.store.getters.authUser.id))
 
       return Promise.all(promises).then(promisesResults => {
         return {

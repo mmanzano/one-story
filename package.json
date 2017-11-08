@@ -17,6 +17,7 @@
     "buefy": "^0.5.4",
     "jsonapi-parse": "^2.0.0",
     "nuxt": "^1.0.0-rc11",
+    "qs": "^6.5.1",
     "vue-passport": "^1.0.11"
   },
   "devDependencies": {
