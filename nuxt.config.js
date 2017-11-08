@@ -1,6 +1,15 @@
 module.exports = {
-  plugins: ['~plugins/buefy'],
+  plugins: [
+    '~plugins/buefy',
+    {
+      src: '~plugins/passport',
+      ssr: false
+    }
+  ],
   env: {
+    API_AUTH_URL: 'http://localhost:8000',
+    PASSPORT_CLIENT_ID: 4,
+    PASSPORT_SECRET: 'vinkwHGun7PCf11rOQjN58Vz7ofymcxVC0i3Ow9Q',
     JSONAPIBaseUrl: 'http://localhost:8000/api'
   },
   /*

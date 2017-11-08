@@ -1,4 +1,6 @@
 export const state = () => ({
+  'authorization': null,
+  'authUser': null,
   'selectedMonth': {
     'id': 11,
     'name': 'November'
@@ -58,5 +60,11 @@ export const state = () => ({
 export const mutations = {
   changeMonth (state, month) {
     state.selectedMonth = month
+  },
+  setAuthUser (state, authUser) {
+    state.authUser = authUser
+  },
+  setAuthorization (state, authorization) {
+    state.authorization = authorization
   }
 }
